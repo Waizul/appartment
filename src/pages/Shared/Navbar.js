@@ -13,7 +13,7 @@ import { Button, Menu } from '@mui/material';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { fontSize } from '@mui/system';
-
+import useAuth from '../../hook/useAuth';
 const Navbar = () => {
 	// const [auth, setAuth] = React.useState(true);
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,6 +21,8 @@ const Navbar = () => {
 	// const handleChange = (event) => {
 	// 	setAuth(event.target.checked);
 	// };
+	const { user, logOut } = useAuth();
+
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	console.log(isMobile);
@@ -34,8 +36,13 @@ const Navbar = () => {
 	};
 
 	const style = {
-		navlink: { fontWeight: 'bold', color: 'red' },
-		button: { boxShadow: 0, fontSize: '1rem', color: 'white' },
+		navLink: { fontWeight: 'bold', color: 'red' },
+		button: {
+			boxShadow: 0,
+			fontSize: '1rem',
+			color: 'white',
+			TextDecoration: 'none',
+		},
 	};
 	return (
 		<Box
@@ -55,7 +62,10 @@ const Navbar = () => {
 					label={auth ? 'Logout' : 'Login'}
 				/>
 			</FormGroup> */}
-			<AppBar position='static' sx={{ background: 'gray', boxShadow: 0 }}>
+			<AppBar
+				position='static'
+				sx={{ background: 'rgba(0,0,0,0)', boxShadow: 0 }}
+			>
 				<Toolbar
 					sx={{
 						display: 'flex',
@@ -119,38 +129,78 @@ const Navbar = () => {
 									>
 										Contact
 									</MenuItem>{' '}
+									{user?.email ? (
+										<MenuItem onClick={logOut}>
+											Log Out
+										</MenuItem>
+									) : (
+										<MenuItem
+											onClick={() =>
+												handleMenuClick('/login')
+											}
+										>
+											Login
+										</MenuItem>
+									)}
 								</Menu>
 							</div>{' '}
 						</>
 					) : (
 						<div>
-							<NavLink to='/home' activeStyle={style.navlink}>
+							<Button
+								sx={{
+									textDecoration: 'none',
+									background: 'none',
+								}}
+								variant='contained'
+								onClick={() => handleMenuClick('/home')}
+							>
+								Home
+							</Button>
+
+							<Button
+								sx={{
+									textDecoration: 'none',
+									background: 'none',
+								}}
+								variant='contained'
+								onClick={() => handleMenuClick('/explore')}
+							>
+								Explore
+							</Button>
+							<Button
+								sx={{
+									textDecoration: 'none',
+									background: 'none',
+								}}
+								variant='contained'
+								onClick={() => handleMenuClick('/contact')}
+							>
+								Contact
+							</Button>
+							{user?.email ? (
 								<Button
-									sx={{ mx: 2 }}
-									style={style.button}
-									variant='text'
+									sx={{
+										textDecoration: 'none',
+										background: 'none',
+									}}
+									variant='contained'
+									onClick={logOut}
 								>
-									Home
+									Log Out
 								</Button>
-							</NavLink>
-							<NavLink to='/explore'>
+							) : (
 								<Button
-									sx={{ mx: 2 }}
-									style={style.button}
-									variant='text'
+									sx={{
+										textDecoration: 'none',
+										background: 'none',
+									}}
+									variant='contained'
+									onClick={() => handleMenuClick('/login')}
 								>
-									Apartments
+									Login
 								</Button>
-							</NavLink>
-							<NavLink to='/contact'>
-								<Button
-									sx={{ mx: 2 }}
-									style={style.button}
-									variant='text'
-								>
-									Contact
-								</Button>
-							</NavLink>
+							)}
 						</div>
 					)}
 				</Toolbar>

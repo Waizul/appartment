@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import bg from '../../../images/invertedcommabg.png';
 
 // const style = {
 // 	background: {

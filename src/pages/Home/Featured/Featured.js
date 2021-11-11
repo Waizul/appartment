@@ -1,14 +1,15 @@
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import bgim from '../../../images/banner/banner4.jpg';
 import FeatureCard from './FeatureCard';
+
 const style = {
 	background: {
-		minHeight: '90vh',
-		backgroundImage: `url(${bgim})`,
+		minHeight: '100vh',
+		width: '100%',
+		backgroundImage: `url(https://i.ibb.co/mqYFqym/featured.jpg)`,
 		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover',
+		backgroundSize: '100% 100%',
 		paddingBottom: '1rem',
 	},
 };
@@ -19,7 +20,12 @@ const Featured = () => {
 				FEATURED
 				<br /> APARTMENTS
 			</Typography>
-			<Typography sx={{ textAlign: 'center' }}>lorem20</Typography>
+			<Typography sx={{ textAlign: 'center' }}>
+				Discover our spaces that defines a new dimension of luxury. An
+				essential aspect of creativity is not being afraid to fail.
+				Design like you are absolutely right, then optimize like you
+				were wrong. Cultivating market leadership from the inside out.
+			</Typography>
 			<Box sx={{ pl: 5, mt: 5 }} style={style.background}>
 				<Grid
 					sx={{ width: '60%' }}

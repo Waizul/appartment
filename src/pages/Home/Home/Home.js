@@ -1,9 +1,9 @@
 import React from 'react';
-import Footer from '../Footer/Footer';
+import Navbar from '../../Shared/Navbar';
+import Apartments from '../Apartment/Apartments';
+import Featured from '../Featured/Featured';
+import Header from '../Header/Header';
 import Review from '../Review/Review';
-import Apartments from './Apartments';
-import Featured from './Featured';
-import Header from './Header';
 
 const Home = () => {
 	return (
@@ -12,7 +12,6 @@ const Home = () => {
 			<Apartments />
 			<Featured />
 			<Review />
-			<Footer />
 		</div>
 	);
 };

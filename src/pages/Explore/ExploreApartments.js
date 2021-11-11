@@ -7,14 +7,22 @@ import {
 	Collapse,
 	Typography,
 } from '@mui/material';
+import { useHistory } from 'react-router';
 
-import apartmentBg from '../../images/banner/banner1.jpg';
 const style = {
 	size: {},
 };
-const ExploreApartments = () => {
+const ExploreApartments = ({ apartment }) => {
 	const [checked, setChecked] = React.useState(false);
 	useEffect(() => setChecked(true), []);
+	const { _id, name, description1, description2, img, price } = apartment;
+
+	const history = useHistory();
+
+	const handleBuyNow = (id) => {
+		history.push(`/purchase/${id}`);
+	};
+
 	return (
 		<Collapse in={checked} {...(checked ? { timeout: 1500 } : {})}>
 			<Card
@@ -24,22 +32,19 @@ const ExploreApartments = () => {
 					color: 'white',
 				}}
 			>
-				<CardMedia
-					component='img'
-					height='400'
-					image={apartmentBg}
-					alt=''
-				/>
+				<CardMedia component='img' height='400' image={img} alt='' />
 				<CardContent>
 					<Typography gutterBottom variant='h4' component='div'>
-						Lizard
+						{name}
 					</Typography>
-					<Typography variant='body2'>
-						Lizards are a widespread group of squamate reptiles,
-						with over 6,000 species, ranging across all continents
-						except Antarctica
-					</Typography>
-					<Button sx={{ mt: 2 }} variant='contained'>
+					<Typography variant='body2'>{price}</Typography>
+					<Typography variant='body2'>{description1}</Typography>
+					<Typography variant='body2'>{description2}</Typography>
+					<Button
+						sx={{ mt: 2 }}
+						variant='contained'
+						onClick={() => handleBuyNow(_id)}
+					>
 						Buy Now
 					</Button>
 				</CardContent>

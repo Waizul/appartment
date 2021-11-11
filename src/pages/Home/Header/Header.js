@@ -3,12 +3,12 @@ import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Shared/Navbar';
+import banner from '../../../images/banner.jpg';
 
-import bannerBg from './../../../images/banner/banner4.jpg';
 const style = {
 	background: {
-		minHeight: '90vh',
-		backgroundImage: `url(${bannerBg})`,
+		minHeight: '100vh',
+		backgroundImage: `url(https://i.ibb.co/r6wwyLZ/banner.jpg)`,
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
 		paddingBottom: 150,
@@ -50,7 +50,7 @@ const Header = () => {
 							A Fair of <br />
 							Luxurious Apartment
 						</Typography>
-						<Link to='/explore'>
+						<Link style={{ textDecoration: 'none' }} to='/explore'>
 							<Button variant='contained'>Explore</Button>
 						</Link>
 					</div>
