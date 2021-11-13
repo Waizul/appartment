@@ -9,6 +9,7 @@ const Review = () => {
 	const { register, handleSubmit, reset } = useForm();
 	const { user } = useAuth();
 	const style = useStyle();
+
 	const onSubmit = (data) => {
 		const newData = { ...data, displayName: user.displayName };
 		fetch('https://dry-falls-36649.herokuapp.com/review', {
@@ -23,12 +24,13 @@ const Review = () => {
 					setSuccess(true);
 				}
 			});
-		console.log(newData);
 		reset();
 	};
+
 	return (
 		<div>
-			<Alert severity='success'>review added</Alert>
+			{success && <Alert severity='success'>review added</Alert>}
+
 			<form onSubmit={handleSubmit(onSubmit)} style={style.form}>
 				<h3>Review</h3>
 				<textarea
@@ -53,7 +55,6 @@ const Review = () => {
 						<option value='5'>5</option>
 					</select>
 				</div>
-
 				<input type='submit' />
 			</form>
 		</div>

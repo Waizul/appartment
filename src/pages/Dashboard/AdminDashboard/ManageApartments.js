@@ -1,5 +1,5 @@
 import useApartment from '../../../hook/useApartment';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,12 +7,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import useAuth from '../../../hook/useAuth';
 import { Button } from '@mui/material';
+
 const ManageApartments = () => {
 	const apartments = useApartment(0);
-	console.log(apartments);
-	const { user } = useAuth();
 
 	const handleDelete = (id) => {
 		const proceed = window.confirm('Do you want to delete ?');
@@ -28,6 +26,7 @@ const ManageApartments = () => {
 				});
 		}
 	};
+
 	return (
 		<div style={{ minHeight: '50vh' }}>
 			<TableContainer component={Paper}>

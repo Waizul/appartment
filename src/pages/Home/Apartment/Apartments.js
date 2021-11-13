@@ -8,6 +8,7 @@ import useApartment from '../../../hook/useApartment';
 const Apartments = () => {
 	const checked = useWindowPosition('header');
 	const apartments = useApartment(6);
+
 	return (
 		<div>
 			<Container>

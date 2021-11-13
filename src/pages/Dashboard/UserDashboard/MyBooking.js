@@ -24,6 +24,7 @@ const MyBooking = () => {
 				console.log(data);
 			});
 	}, [user.email]);
+
 	return (
 		<div style={{ minHeight: '50vh' }}>
 			<TableContainer component={Paper}>

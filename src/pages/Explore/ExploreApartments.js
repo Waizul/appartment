@@ -9,9 +9,6 @@ import {
 } from '@mui/material';
 import { useHistory } from 'react-router';
 
-const style = {
-	size: {},
-};
 const ExploreApartments = ({ apartment }) => {
 	const [checked, setChecked] = React.useState(false);
 	useEffect(() => setChecked(true), []);

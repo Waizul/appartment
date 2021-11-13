@@ -3,7 +3,6 @@ import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Shared/Navbar';
-import banner from '../../../images/banner.jpg';
 
 const style = {
 	background: {
@@ -15,6 +14,7 @@ const style = {
 	},
 	colorText: { color: 'green' },
 };
+
 const Header = () => {
 	const [checked, setChecked] = React.useState(false);
 	useEffect(() => setChecked(true), []);

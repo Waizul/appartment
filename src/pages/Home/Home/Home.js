@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../Shared/Navbar';
+import React from 'react';
 import Apartments from '../Apartment/Apartments';
 import Featured from '../Featured/Featured';
 import Header from '../Header/Header';

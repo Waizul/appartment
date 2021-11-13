@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useAuth from '../../../hook/useAuth';
-import { Button, Container } from '@mui/material';
+import { Button } from '@mui/material';
 import useDeleteBooking from '../../../hook/useDeleteBooking';
 const ManageBookings = () => {
 	const [bookings, setBookings] = useState([]);
@@ -35,8 +35,8 @@ const ManageBookings = () => {
 					alert('booking confirmed');
 				}
 			});
-		console.log(id);
 	};
+
 	return (
 		<div style={{ minHeight: '50vh' }}>
 			<TableContainer component={Paper}>

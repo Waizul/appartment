@@ -1,15 +1,16 @@
 import { Container, Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import Review from './Review';
 
 const AllReview = () => {
 	const [review, setReview] = useState([]);
+
 	useEffect(() => {
 		fetch('https://dry-falls-36649.herokuapp.com/review')
 			.then((res) => res.json())
 			.then((data) => setReview(data));
 	}, []);
+
 	return (
 		<Container sx={{ minHeight: '90vh' }}>
 			<Typography sx={{ fontSize: '2rem', mt: 5, textAlign: 'center' }}>

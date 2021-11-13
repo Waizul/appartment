@@ -14,7 +14,7 @@ const Footer = () => {
 		<div
 			style={{
 				maxHeight: '100vh',
-				background: 'gray',
+				background: 'rgba(30,40,90,1)',
 				paddingBottom: '1rem',
 			}}
 		>
@@ -51,7 +51,7 @@ const Footer = () => {
 					</Box>
 
 					<Box>
-						<Typography>
+						<Typography sx={{ color: 'white' }}>
 							{' '}
 							SUBSCRIBE <br /> To our newsletter
 						</Typography>
@@ -74,7 +74,7 @@ const Footer = () => {
 					</Box>
 				</Box>
 				<Box sx={{ textAlign: 'center' }}>
-					<Typography>FOLLOW US</Typography>
+					<Typography sx={{ color: 'white' }}>FOLLOW US</Typography>
 					<Box
 						sx={{
 							display: 'flex',

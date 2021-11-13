@@ -13,6 +13,7 @@ const style = {
 		paddingBottom: '1rem',
 	},
 };
+
 const Featured = () => {
 	return (
 		<div style={{ marginTop: 20, marginBottom: 20 }}>

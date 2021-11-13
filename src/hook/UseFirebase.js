@@ -9,7 +9,6 @@ import {
 	GoogleAuthProvider,
 	signInWithPopup,
 	updateProfile,
-	getIdToken,
 } from 'firebase/auth';
 import firebaseAuthentication from '../firebase/firebase.config';
 
@@ -20,15 +19,12 @@ const useFirebase = () => {
 	const [loading, setLoading] = useState(true);
 	const [authError, setAuthError] = useState('');
 	const [admin, setAdmin] = useState({});
-	const [token, setToken] = useState('');
 	const auth = getAuth();
 
 	const registerUser = (email, password, name, history) => {
 		setLoading(true);
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				// Signed in
-				// const user = userCredential.user;
 				const newUser = { email, displayName: name };
 				setUser(newUser);
 				saveUser(email, name, 'post');
@@ -45,6 +41,7 @@ const useFirebase = () => {
 			})
 			.finally(() => setLoading(false));
 	};
+
 	const logIn = (email, password, history, location) => {
 		setLoading(true);
 		signInWithEmailAndPassword(auth, email, password)
@@ -68,9 +65,6 @@ const useFirebase = () => {
 		setLoading(true);
 		signInWithPopup(auth, googleProvider)
 			.then((result) => {
-				// This gives you a Google Access Token. You can use it to access the Google API.
-				const credential =
-					GoogleAuthProvider.credentialFromResult(result);
 				const signedUser = result.user;
 				setUser(signedUser);
 				saveUser(signedUser.email, signedUser.displayName, 'put');
@@ -86,11 +80,9 @@ const useFirebase = () => {
 	const logOut = () => {
 		signOut(auth)
 			.then(() => {
-				// Sign-out successful.
+				setUser({});
 			})
-			.catch((error) => {
-				// An error happened.
-			});
+			.catch((error) => {});
 	};
 
 	useEffect(() => {
@@ -116,6 +108,7 @@ const useFirebase = () => {
 			body: JSON.stringify(user),
 		}).then();
 	};
+
 	useEffect(() => {
 		fetch(`https://dry-falls-36649.herokuapp.com/users/${user?.email}`)
 			.then((res) => res.json())
@@ -129,7 +122,6 @@ const useFirebase = () => {
 		user,
 		registerUser,
 		admin,
-
 		logIn,
 		signInUsingGoogle,
 		logOut,

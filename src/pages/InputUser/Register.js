@@ -9,14 +9,15 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import useAuth from '../../hook/useAuth';
+
 const Register = () => {
 	const [registerData, setRegisterData] = useState({});
 	const { user, registerUser, signInUsingGoogle, loading, authError } =
 		useAuth();
-	console.log(registerData);
+
 	const history = useHistory();
+
 	const handleOnBlur = (e) => {
 		const field = e.target.name;
 		const value = e.target.value;
@@ -24,6 +25,7 @@ const Register = () => {
 		newRegisterData[field] = value;
 		setRegisterData(newRegisterData);
 	};
+
 	const handleLoginSubmit = (e) => {
 		if (registerData.password !== registerData.password2) {
 			alert('your password did not matched');
@@ -37,9 +39,11 @@ const Register = () => {
 		);
 		e.preventDefault();
 	};
+
 	const handleGoogleSignIn = () => {
 		signInUsingGoogle(history);
 	};
+
 	return (
 		<Container>
 			<Grid container spacing={2}>

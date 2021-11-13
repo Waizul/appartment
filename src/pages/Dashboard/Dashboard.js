@@ -6,15 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import useAuth from '../../hook/useAuth';
 
@@ -34,11 +31,15 @@ const drawerWidth = 240;
 function Dashboard(props) {
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+
 	const { user, admin, logOut } = useAuth();
+
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
+
 	let { path, url } = useRouteMatch();
+
 	const drawer = (
 		<div>
 			<Toolbar />
@@ -187,7 +188,6 @@ function Dashboard(props) {
 				sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
 				aria-label='mailbox folders'
 			>
-				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Drawer
 					container={container}
 					variant='temporary'

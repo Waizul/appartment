@@ -2,28 +2,23 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
 import { useTheme } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import { Button, Menu } from '@mui/material';
 import { useHistory } from 'react-router';
-import { NavLink } from 'react-router-dom';
-import { fontSize } from '@mui/system';
 import useAuth from '../../hook/useAuth';
+
 const Navbar = () => {
-	// const [auth, setAuth] = React.useState(true);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const history = useHistory();
-	// const handleChange = (event) => {
-	// 	setAuth(event.target.checked);
-	// };
+
 	const { user, logOut } = useAuth();
 
 	const theme = useTheme();
+
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	console.log(isMobile);
 	const handleMenu = (event) => {
@@ -35,33 +30,12 @@ const Navbar = () => {
 		setAnchorEl(null);
 	};
 
-	const style = {
-		navLink: { fontWeight: 'bold', color: 'red' },
-		button: {
-			boxShadow: 0,
-			fontSize: '1rem',
-			color: 'white',
-			TextDecoration: 'none',
-		},
-	};
 	return (
 		<Box
 			sx={{
 				flexGrow: 1,
 			}}
 		>
-			{/* <FormGroup>
-				<FormControlLabel
-					control={
-						<Switch
-							checked={auth}
-							onChange={handleChange}
-							aria-label='login switch'
-						/>
-					}
-					label={auth ? 'Logout' : 'Login'}
-				/>
-			</FormGroup> */}
 			<AppBar
 				position='static'
 				sx={{ background: 'rgba(0,0,0,0)', boxShadow: 0 }}
@@ -129,6 +103,20 @@ const Navbar = () => {
 									>
 										Contact
 									</MenuItem>{' '}
+									{user?.email && (
+										<Button
+											sx={{
+												textDecoration: 'none',
+												background: 'none',
+											}}
+											variant='contained'
+											onClick={() =>
+												handleMenuClick('/dashboard')
+											}
+										>
+											Dashboard
+										</Button>
+									)}
 									{user?.email ? (
 										<MenuItem onClick={logOut}>
 											Log Out
@@ -143,7 +131,7 @@ const Navbar = () => {
 										</MenuItem>
 									)}
 								</Menu>
-							</div>{' '}
+							</div>
 						</>
 					) : (
 						<div>

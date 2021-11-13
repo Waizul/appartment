@@ -10,12 +10,15 @@ import {
 import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
+
 const Login = () => {
 	const [loginData, setLoginData] = useState({});
-	console.log(loginData);
+
 	const history = useHistory();
 	const location = useLocation();
+
 	const { logIn, authError, loading, signInUsingGoogle } = useAuth();
+
 	const handleOnBlur = (e) => {
 		const field = e.target.name;
 		const value = e.target.value;
@@ -23,13 +26,16 @@ const Login = () => {
 		newLoginData[field] = value;
 		setLoginData(newLoginData);
 	};
+
 	const handleLoginSubmit = (e) => {
 		logIn(loginData.email, loginData.password, history, location);
 		e.preventDefault();
 	};
+
 	const handleGoogleSignIn = () => {
 		signInUsingGoogle(history, location);
 	};
+
 	return (
 		<>
 			<Container>

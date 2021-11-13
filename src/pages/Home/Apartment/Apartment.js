@@ -27,7 +27,6 @@ const Apartment = ({ apartment, checked }) => {
 					sx={{
 						maxWidth: 600,
 						background: 'rgba(0,0,0,0.1)',
-						// color: 'white',
 					}}
 				>
 					<CardMedia

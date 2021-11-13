@@ -22,6 +22,7 @@ const style = {
 		marginBottom: 5,
 	},
 };
+
 const MakeAdmin = () => {
 	const [success, setSuccess] = useState(false);
 	const { register, handleSubmit, reset } = useForm();
@@ -38,12 +39,10 @@ const MakeAdmin = () => {
 				if (data.modifiedCount) {
 					setSuccess(true);
 				}
-				console.log(data);
 			});
-
-		console.log(data);
 		reset();
 	};
+
 	return (
 		<div style={style.formBackground}>
 			{success && <Alert severity='success'>Admin role added</Alert>}
