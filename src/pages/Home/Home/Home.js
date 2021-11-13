@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../Shared/Navbar';
 import Apartments from '../Apartment/Apartments';
 import Featured from '../Featured/Featured';
 import Header from '../Header/Header';
-import Review from '../Review/Review';
+import AllReview from '../Review/AllReview';
 
 const Home = () => {
 	return (
@@ -11,7 +11,7 @@ const Home = () => {
 			<Header />
 			<Apartments />
 			<Featured />
-			<Review />
+			<AllReview />
 		</div>
 	);
 };

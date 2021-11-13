@@ -178,6 +178,20 @@ const Navbar = () => {
 							>
 								Contact
 							</Button>
+							{user?.email && (
+								<Button
+									sx={{
+										textDecoration: 'none',
+										background: 'none',
+									}}
+									variant='contained'
+									onClick={() =>
+										handleMenuClick('/dashboard')
+									}
+								>
+									Dashboard
+								</Button>
+							)}
 							{user?.email ? (
 								<Button
 									sx={{

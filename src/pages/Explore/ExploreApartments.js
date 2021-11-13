@@ -33,13 +33,31 @@ const ExploreApartments = ({ apartment }) => {
 				}}
 			>
 				<CardMedia component='img' height='400' image={img} alt='' />
+
 				<CardContent>
-					<Typography gutterBottom variant='h4' component='div'>
+					<Typography gutterBottom variant='h5' component='div'>
 						{name}
 					</Typography>
-					<Typography variant='body2'>{price}</Typography>
+					<Typography sx={{ color: 'purple', mb: 2 }} variant='h5'>
+						Price: {price} BDT
+					</Typography>
 					<Typography variant='body2'>{description1}</Typography>
-					<Typography variant='body2'>{description2}</Typography>
+					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+						{description2?.slice(0, 35)}
+					</Typography>
+					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+						{description2?.slice(35, 59)}
+					</Typography>
+					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+						{description2?.slice(59, 77)}
+					</Typography>
+					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+						{description2?.slice(77, 122)}
+					</Typography>
+					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+						{description2?.slice(122, 200)}
+					</Typography>
+
 					<Button
 						sx={{ mt: 2 }}
 						variant='contained'

@@ -71,8 +71,6 @@ const useFirebase = () => {
 				// This gives you a Google Access Token. You can use it to access the Google API.
 				const credential =
 					GoogleAuthProvider.credentialFromResult(result);
-				const token = credential.accessToken;
-				// The signed-in user info.
 				const signedUser = result.user;
 				setUser(signedUser);
 				saveUser(signedUser.email, signedUser.displayName, 'put');
@@ -99,7 +97,6 @@ const useFirebase = () => {
 		const unsubscribed = onAuthStateChanged(auth, (user) => {
 			if (user) {
 				setUser(user);
-				// getIdToken(user).then((idToken) => setToken(idToken));
 			} else {
 				// User is signed out
 				setUser({});
@@ -111,7 +108,7 @@ const useFirebase = () => {
 
 	const saveUser = (email, displayName, method) => {
 		const user = { email, displayName };
-		fetch('http://localhost:7000/users', {
+		fetch('https://dry-falls-36649.herokuapp.com/users', {
 			method: method,
 			headers: {
 				'content-type': 'application/json',
@@ -120,7 +117,7 @@ const useFirebase = () => {
 		}).then();
 	};
 	useEffect(() => {
-		fetch(`http://localhost:7000/users/${user?.email}`)
+		fetch(`https://dry-falls-36649.herokuapp.com/users/${user?.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setAdmin(data.admin);
@@ -132,7 +129,7 @@ const useFirebase = () => {
 		user,
 		registerUser,
 		admin,
-		token,
+
 		logIn,
 		signInUsingGoogle,
 		logOut,

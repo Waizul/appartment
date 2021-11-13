@@ -11,15 +11,18 @@ const FeatureCard = () => {
 	return (
 		<div>
 			<Card
-				sx={{ maxWidth: 200, height: 200, background: 'white', mr: 1 }}
+				sx={{
+					maxWidth: 200,
+					height: 200,
+					background: 'rgba(30,40,90,0.9)',
+					mr: 1,
+					color: 'white',
+				}}
 			>
 				<CardContent>
 					<WifiIcon />
-					<Typography gutterBottom variant='h5' component='div'>
-						Lizard
-					</Typography>
-					<Typography variant='body2' color='text.secondary'>
-						Lizards are a
+					<Typography gutterBottom component='div'>
+						HI-SPEED WIFI
 					</Typography>
 				</CardContent>
 			</Card>

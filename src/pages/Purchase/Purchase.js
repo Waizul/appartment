@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hook/useAuth';
 import { useForm } from 'react-hook-form';
 
@@ -47,23 +47,33 @@ const style = {
 
 const Purchase = () => {
 	const [apartment, setApartment] = useState({});
-	const [userInfo, setUserInfo] = useState({});
 	const { id } = useParams();
 	const { user } = useAuth();
-
-	const { name, price, description1, description2, img } = apartment;
+	const history = useHistory();
+	const { register, handleSubmit, reset } = useForm();
 
 	useEffect(() => {
-		fetch(`http://localhost:7000/apartments/${id}`)
+		fetch(`https://dry-falls-36649.herokuapp.com/apartments/${id}`)
 			.then((res) => res.json())
 			.then((data) => setApartment(data));
 	}, [id]);
 
-	const { register, handleSubmit, reset } = useForm();
+	const { name, price, description1, description2, img } = apartment;
+
 	const onSubmit = (data) => {
-		setUserInfo(data);
-		console.log(data);
+		const newData = { ...data, status: 'pending' };
+		fetch('https://dry-falls-36649.herokuapp.com/bookings', {
+			method: 'post',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(newData),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log(data));
+
 		reset();
+		history.push('/dashboard/payment');
 	};
 
 	return (
@@ -161,12 +171,29 @@ const Purchase = () => {
 								/>
 								<input
 									style={style.input}
+									placeholder='apartment'
+									defaultValue={name}
+									{...register('apartment', {
+										required: true,
+									})}
+								/>
+								<input
+									style={style.input}
+									placeholder='price'
+									defaultValue={price}
+									{...register('price', {
+										required: true,
+									})}
+								/>
+								<input
+									style={style.input}
 									placeholder='phone '
 									type='number'
 									{...register('phone', {
 										required: true,
 									})}
-								/>{' '}
+								/>
+
 								<input
 									style={style.input}
 									placeholder='address'
@@ -176,8 +203,16 @@ const Purchase = () => {
 								/>
 								<input
 									style={style.input}
+									type='date'
+									{...register('date', {
+										required: true,
+									})}
+								/>
+								<input
+									style={style.input}
 									color='success'
 									type='submit'
+									value='Proceed to purchase'
 								/>
 							</form>
 						</Box>

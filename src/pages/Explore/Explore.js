@@ -16,7 +16,7 @@ const style = {
 	background: 'black',
 };
 const Explore = () => {
-	const apartments = useApartment(10);
+	const apartments = useApartment(0);
 	return (
 		<div>
 			<Box sx={{ background: 'rgba(0,0,100,1)' }}>
