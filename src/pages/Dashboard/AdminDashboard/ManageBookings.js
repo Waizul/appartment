@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import useAuth from '../../../hook/useAuth';
 import { Button } from '@mui/material';
 import useDeleteBooking from '../../../hook/useDeleteBooking';
+
 const ManageBookings = () => {
 	const [bookings, setBookings] = useState([]);
 
@@ -21,7 +22,6 @@ const ManageBookings = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setBookings(data);
-				console.log(data);
 			});
 	}, [user.email]);
 

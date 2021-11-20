@@ -20,7 +20,7 @@ const Navbar = () => {
 	const theme = useTheme();
 
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	console.log(isMobile);
+
 	const handleMenu = (event) => {
 		setAnchorEl(event.currentTarget);
 	};

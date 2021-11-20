@@ -39,7 +39,12 @@ const Apartment = ({ apartment, checked }) => {
 						<Typography gutterBottom variant='h4' component='div'>
 							{name}
 						</Typography>
-						<Typography variant='body2'>{description1}</Typography>
+						<Typography
+							sx={{ fontFamily: 'roboto' }}
+							variant='body2'
+						>
+							{description1}
+						</Typography>
 						<Typography
 							sx={{ color: 'purple', mb: 2 }}
 							variant='h5'
@@ -47,7 +52,7 @@ const Apartment = ({ apartment, checked }) => {
 							Price: {price} BDT
 						</Typography>
 						<Button
-							sx={{ mt: 2 }}
+							sx={{ mt: 2, background: 'rgba(2,20,12,0.9)' }}
 							variant='contained'
 							onClick={() => handleBuyNow(_id)}
 						>

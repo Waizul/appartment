@@ -1,8 +1,10 @@
 import { Alert } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useStyle from '../../hook/useStyle';
 const AddApartment = () => {
+	const [success, setSuccess] = useState(false);
+
 	const { register, handleSubmit, reset } = useForm();
 
 	const style = useStyle();
@@ -19,16 +21,15 @@ const AddApartment = () => {
 			.then((data) => {
 				if (data.insertedId) {
 					alert('apartment added');
-					console.log(data);
+					setSuccess(true);
 				}
 			});
-		console.log(data);
 		reset();
 	};
 
 	return (
-		<div style={style.formBackground}>
-			<Alert severity='success'>Apartment added</Alert>;
+		<div>
+			{success && <Alert severity='success'>Apartment added</Alert>};
 			<form onSubmit={handleSubmit(onSubmit)} style={style.form}>
 				<input
 					style={style.input}

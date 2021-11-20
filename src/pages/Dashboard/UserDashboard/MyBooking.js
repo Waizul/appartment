@@ -21,7 +21,6 @@ const MyBooking = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setMyBooking(data);
-				console.log(data);
 			});
 	}, [user.email]);
 

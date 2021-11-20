@@ -8,6 +8,7 @@ import {
 	Typography,
 } from '@mui/material';
 import { useHistory } from 'react-router';
+import { Box } from '@mui/system';
 
 const ExploreApartments = ({ apartment }) => {
 	const [checked, setChecked] = React.useState(false);
@@ -30,16 +31,24 @@ const ExploreApartments = ({ apartment }) => {
 				}}
 			>
 				<CardMedia component='img' height='400' image={img} alt='' />
-
 				<CardContent>
 					<Typography gutterBottom variant='h5' component='div'>
 						{name}
 					</Typography>
-					<Typography sx={{ color: 'purple', mb: 2 }} variant='h5'>
+					<Typography
+						sx={{
+							color: 'purple',
+							mb: 2,
+						}}
+						variant='h5'
+					>
 						Price: {price} BDT
 					</Typography>
 					<Typography variant='body2'>{description1}</Typography>
-					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
+					<Typography
+						sx={{ mt: 2, mb: 1, fontFamily: 'roboto' }}
+						variant='body2'
+					>
 						{description2?.slice(0, 35)}
 					</Typography>
 					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
@@ -54,7 +63,6 @@ const ExploreApartments = ({ apartment }) => {
 					<Typography sx={{ mt: 2, mb: 1 }} variant='body2'>
 						{description2?.slice(122, 200)}
 					</Typography>
-
 					<Button
 						sx={{ mt: 2 }}
 						variant='contained'

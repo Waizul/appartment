@@ -45,15 +45,20 @@ const Register = () => {
 	};
 
 	return (
-		<Container>
+		<Container
+			sx={{
+				minHeight: '100vh',
+				mt: 2,
+			}}
+		>
 			<Grid container spacing={2}>
 				<Grid sx={{ mt: 10 }} item xs={12} md={6}>
-					<Typography variant='body1'>Register</Typography>
+					<Typography variant='h5'>Register</Typography>
 					{!loading && (
 						<form onSubmit={handleLoginSubmit}>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='your name'
 								type='text'
 								name='name'
@@ -62,7 +67,7 @@ const Register = () => {
 							></TextField>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='your email'
 								type='email'
 								name='email'
@@ -71,7 +76,7 @@ const Register = () => {
 							></TextField>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='your password'
 								name='password'
 								type='password'
@@ -80,7 +85,7 @@ const Register = () => {
 							></TextField>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='retype your password'
 								name='password2'
 								type='password'

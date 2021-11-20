@@ -38,14 +38,19 @@ const Login = () => {
 
 	return (
 		<>
-			<Container>
+			<Container
+				sx={{
+					minHeight: '80vh',
+					mt: 5,
+				}}
+			>
 				<Grid container spacing={2}>
 					<Grid sx={{ mt: 10 }} item xs={12} md={6}>
-						<Typography variant='body1'>Login</Typography>
+						<Typography variant='h5'>Login</Typography>
 						<form onSubmit={handleLoginSubmit}>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='your email'
 								type='email'
 								name='email'
@@ -54,7 +59,7 @@ const Login = () => {
 							></TextField>
 							<TextField
 								sx={{ width: 300, m: 1 }}
-								id='standard'
+								id='standard-basic'
 								label='your password'
 								name='password'
 								type='password'

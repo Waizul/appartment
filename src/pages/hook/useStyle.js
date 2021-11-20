@@ -25,10 +25,8 @@ const useStyle = () => {
 			width: '70%',
 			height: '2rem',
 			paddingLeft: 10,
-			color: 'white',
 			fontWeight: 'bold',
 			fontSize: '1.1rem',
-			background: 'rgba(0,0,1,0.5)',
 			marginBottom: 2,
 		},
 	};

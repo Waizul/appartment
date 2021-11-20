@@ -17,17 +17,39 @@ const style = {
 const Featured = () => {
 	return (
 		<div style={{ marginTop: 20, marginBottom: 20 }}>
-			<Typography sx={{ fontSize: '1.7rem', textAlign: 'center' }}>
-				FEATURED
-				<br /> APARTMENTS
+			<Typography
+				sx={{
+					fontSize: '2.1rem',
+					mt: 12,
+					textAlign: 'center',
+					fontFamily: 'roboto',
+				}}
+			>
+				Featured Apartments
 			</Typography>
-			<Typography sx={{ textAlign: 'center' }}>
+			<Box
+				sx={{
+					width: '140px',
+					borderTop: '3px solid orange',
+					mt: 2,
+					mb: 3,
+					mx: 'auto',
+				}}
+			></Box>
+			<Typography
+				sx={{
+					textAlign: 'center',
+					fontFamily: 'roboto',
+					width: '77%',
+					mx: 'auto',
+				}}
+			>
 				Discover our spaces that defines a new dimension of luxury. An
 				essential aspect of creativity is not being afraid to fail.
 				Design like you are absolutely right, then optimize like you
 				were wrong. Cultivating market leadership from the inside out.
 			</Typography>
-			<Box sx={{ pl: 5, mt: 5 }} style={style.background}>
+			<Box sx={{ pl: 5, mt: 7 }} style={style.background}>
 				<Grid
 					sx={{ width: '60%' }}
 					container

@@ -29,7 +29,7 @@ const style = {
 		paddingTop: 5,
 	},
 	formBackground: {
-		minHeight: '70vh',
+		minHeight: '90vh',
 		background: 'rgba(0,0,1,0.5)',
 		marginTop: 20,
 	},
@@ -133,7 +133,6 @@ const Purchase = () => {
 					<Box style={style.formBackground}>
 						<Typography
 							sx={{
-								color: 'white',
 								fontWeight: 'bold',
 								pt: 5,
 								color: 'red',

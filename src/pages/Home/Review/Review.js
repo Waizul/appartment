@@ -23,9 +23,7 @@ const Review = ({ review }) => {
 				<Typography sx={{ color: 'red' }} variant='body2'>
 					rating: {review.rating}
 				</Typography>
-				<Typography variant='body2' color='text.secondary'>
-					{review.review}
-				</Typography>
+				<Typography variant='body2'>{review.review}</Typography>
 			</CardContent>
 		</Card>
 	);

@@ -7,7 +7,7 @@ const DashboardHome = () => {
 	const { admin } = useAuth();
 	return (
 		<div>
-			<UserDashboard />
+			{!admin && <UserDashboard />}
 			{admin && <AdminDashboard />}
 		</div>
 	);

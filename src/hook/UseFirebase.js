@@ -96,7 +96,7 @@ const useFirebase = () => {
 			setLoading(false);
 		});
 		return () => unsubscribed;
-	}, []);
+	}, [auth]);
 
 	const saveUser = (email, displayName, method) => {
 		const user = { email, displayName };
@@ -114,7 +114,6 @@ const useFirebase = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setAdmin(data.admin);
-				console.log(data);
 			});
 	}, [user?.email]);
 

@@ -4,6 +4,7 @@ import useWindowPosition from '../../hook/useWindowPosition';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useApartment from '../../../hook/useApartment';
+import { Box } from '@mui/system';
 
 const Apartments = () => {
 	const checked = useWindowPosition('header');
@@ -14,19 +15,29 @@ const Apartments = () => {
 			<Container>
 				<Typography
 					sx={{
-						fontSize: '2rem',
+						fontSize: '2.1rem',
+						mt: 7,
 						textAlign: 'center',
-						pt: 5,
+						fontFamily: 'roboto',
 					}}
 				>
 					Browse Apartments
 				</Typography>
+				<Box
+					sx={{
+						width: '140px',
+						borderTop: '3px solid orange',
+						mt: 2,
+						mx: 'auto',
+					}}
+				></Box>
 				<Typography
 					sx={{
 						fontSize: '1rem',
 						textAlign: 'center',
-						pt: 5,
+						pt: 3,
 						pb: 5,
+						fontFamily: 'roboto',
 					}}
 				>
 					Each apartments has been individually designed to maximise
@@ -51,10 +62,8 @@ const Apartments = () => {
 					<Link to='explore' style={{ textDecoration: 'none' }}>
 						<Button
 							sx={{
-								fontSize: '1.3rem',
-								color: 'white',
-
-								textAlign: 'center',
+								fontSize: '1rem',
+								background: 'rgba(2,20,12,0.9)',
 							}}
 							variant='contained'
 						>

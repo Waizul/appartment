@@ -8,13 +8,14 @@ import {
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
 		<div
 			style={{
 				maxHeight: '100vh',
-				background: 'rgba(30,40,90,1)',
+				background: 'rgb(2, 2, 12)',
 				paddingBottom: '1rem',
 			}}
 		>
@@ -27,18 +28,33 @@ const Footer = () => {
 						justifyContent: 'space-around',
 					}}
 				>
-					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'start',
+						}}
+					>
+						<Link to='/home'>
+							{' '}
+							<Button sx={{ color: 'white' }} variant='text'>
+								Home
+							</Button>
+						</Link>
 						<Button sx={{ color: 'white' }} variant='text'>
-							Home
-						</Button>
-						<Button sx={{ color: 'white' }} variant='text'>
-							Featured <br /> Apartment
+							Featured
 						</Button>
 						<Button sx={{ color: 'white' }} variant='text'>
 							Explore
 						</Button>
 					</Box>
-					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'start',
+						}}
+					>
 						<Button sx={{ color: 'white' }} variant='text'>
 							About Us
 						</Button>
@@ -57,6 +73,7 @@ const Footer = () => {
 						</Typography>
 						<form>
 							<TextField
+								sx={{ background: 'rgb(250,250,240)' }}
 								id='outlined-basic'
 								label='email'
 								placeholder='email'
@@ -64,7 +81,10 @@ const Footer = () => {
 								type='email'
 							/>
 							<Button
-								sx={{ display: 'block', background: 'gray' }}
+								sx={{
+									display: 'block',
+									background: 'rgb(2,2,12)',
+								}}
 								variant='contained'
 								type='submit'
 							>
@@ -73,7 +93,7 @@ const Footer = () => {
 						</form>
 					</Box>
 				</Box>
-				<Box sx={{ textAlign: 'center' }}>
+				<Box sx={{ textAlign: 'center', mt: 5 }}>
 					<Typography sx={{ color: 'white' }}>FOLLOW US</Typography>
 					<Box
 						sx={{
@@ -92,7 +112,11 @@ const Footer = () => {
 				</Box>
 				<Box>
 					<Typography
-						sx={{ color: 'white', mt: 2, textAlign: 'center' }}
+						sx={{
+							color: 'white',
+							mt: 3,
+							textAlign: 'center',
+						}}
 					>
 						Copyright <Copyright /> 2021 All rights reserved to No
 						<span style={{ color: 'green' }}>vart</span>
